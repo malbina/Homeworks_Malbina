@@ -6,18 +6,11 @@ public class Animal {
         String name;
         String breed;
         double weight;
+        String typeOfAnimal;
 
-        public Animal () {}
 
-        public Animal ( int age,String name,String breed, double weight ){
-            this.age = age ;
-            this.name = name;
-            this.breed = breed;
-            this.weight = weight;
-
-        }
         public void setAge ( int age){
-            this.age = age;
+            if (age>0) this.age = age;
         }
         public void setName (String name){
             this.name = name;
@@ -29,7 +22,16 @@ public class Animal {
         public void  setWeight ( double weight){
             this.weight = weight;
         }
-        public int getAge (){
+
+    public void setTypeOfAnimal(String typeOfAnimal) {
+        this.typeOfAnimal = typeOfAnimal;
+    }
+
+    public String getTypeOfAnimal() {
+        return typeOfAnimal;
+    }
+
+    public int getAge (){
             return age;
         }
         public String getName (){
@@ -43,7 +45,7 @@ public class Animal {
         }
 
         public void sayAboutMe (){
-            System.out.println(" Имя питомца : " +name+ "\n Возраст: " + age+"\n Порода"+ breed+"\n Вес:"+weight);
+            System.out.println(" Имя питомца : " +name+ "\n Bид животного:"+typeOfAnimal+"\n Возраст: " + age+"\n Порода:"+ breed+"\n Вес:"+weight);
         }
 
     }
