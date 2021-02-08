@@ -8,6 +8,7 @@ public class Group {
     LocalDate dateOfStart;
     int duration;
 
+
     public Group(int numOfStudents, Kurs kurs, LocalDate dateOfStart, int duration) {
         this.students = new Student[numOfStudents];
         this.kurs = kurs;
