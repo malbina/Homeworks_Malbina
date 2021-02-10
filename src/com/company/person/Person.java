@@ -1,12 +1,12 @@
-package com.company;
+package com.company.person;
 
 import java.time.LocalDate;
 
 public class Person {
-    String name;
-    String surname;
-    String sex;
-    LocalDate dateOfBirth;
+    private String name;
+    private  String surname;
+    private String sex;
+    private LocalDate dateOfBirth;
     public Person (){}
     public Person (String name, String surname,String sex,LocalDate dateOfBirth){
         this.name = name;

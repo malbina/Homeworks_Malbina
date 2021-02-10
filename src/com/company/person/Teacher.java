@@ -1,8 +1,10 @@
-package com.company;
+package com.company.person;
+import com.company.person.Person;
+
 import java.time.LocalDate;
-public class Teacher extends Person{
-    int age = LocalDate.now().getYear()-getDateOfBirth().getYear();
-    String subjectOfTeaching;
+public class Teacher extends Person {
+   private  int age = LocalDate.now().getYear()-getDateOfBirth().getYear();
+    private String subjectOfTeaching;
     public Teacher (){}
     public Teacher (String name, String surname,String sex,LocalDate dateOfBirth,String subjectOfTeaching){
         super(name,surname,sex,dateOfBirth);

@@ -1,12 +1,12 @@
-package com.company;
+package com.company.kurs;
 
 import java.time.LocalDate;
 
 public class Kurs {
-    String name;
-    LocalDate dateOfCreate;
-    String ID;
-    String teacher;
+   private String name;
+   private LocalDate dateOfCreate;
+   private String ID;
+   private String teacher;
 
     public Kurs (){}
     public Kurs(String name, LocalDate dateOfCreate, String ID, String teacher) {

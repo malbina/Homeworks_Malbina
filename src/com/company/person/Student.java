@@ -1,10 +1,12 @@
-package com.company;
+package com.company.person;
+
+import com.company.person.Person;
 
 import java.time.LocalDate;
 
 public class Student extends Person {
-    int age= LocalDate.now().getYear()-getDateOfBirth().getYear();
-    String faculty;
+    private int age= LocalDate.now().getYear()-getDateOfBirth().getYear();
+   private String faculty;
 
     public Student (){}
     public Student (String name, String surname, String sex, LocalDate dateOfBirth,String faculty){

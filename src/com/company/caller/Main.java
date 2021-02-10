@@ -1,4 +1,7 @@
-package com.company;
+package com.company.caller;
+
+import com.company.person.Student;
+import com.company.person.Teacher;
 
 import java.time.LocalDate;
 
@@ -13,8 +16,7 @@ public class Main {
         System.out.println("\n\n");
         System.out.println(teacher);
 
-     Chocolate chocolate = new Chocolate(270,3.5,"Milka","Mondelez Germany GmbH , 28089 Bremen");
-        System.out.println(chocolate);
+
 
 
         }

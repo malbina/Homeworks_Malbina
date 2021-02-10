@@ -1,15 +1,18 @@
-package com.company;
+package com.company.kurs.lesson;
+
+import com.company.kurs.Kurs;
+import com.company.person.Student;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Lesson {
-    LocalDate dateOflesson;
-    Student presentStudent [];
-    Kurs kurs;
-    LocalTime timeOfStart;
-    boolean isHWdone;
-    boolean isExamdone;
+  private   LocalDate dateOflesson;
+  private Student presentStudent [];
+  private   Kurs kurs;
+  private LocalTime timeOfStart;
+  private boolean isHWdone;
+  private boolean isExamdone;
 
     public Lesson(LocalDate dateOflesson, Student students [], Kurs kurs, LocalTime timeOfStart, boolean isHWdone, boolean isExamdone) {
         this.dateOflesson = dateOflesson;

@@ -1,12 +1,15 @@
-package com.company;
+package com.company.group;
+
+import com.company.kurs.Kurs;
+import com.company.person.Student;
 
 import java.time.LocalDate;
 
 public class Group {
-    Student students [];
-    Kurs kurs;
-    LocalDate dateOfStart;
-    int duration;
+    private Student students [];
+    private Kurs kurs;
+    private LocalDate dateOfStart;
+    private int duration;
 
 
     public Group(int numOfStudents, Kurs kurs, LocalDate dateOfStart, int duration) {
