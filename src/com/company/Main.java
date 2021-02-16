@@ -1,8 +1,14 @@
 package com.company;
 
 public class Main {
-
     public static void main(String[] args) {
-        System.out.println("Hello World, I'm Malbina ");
+        Monkey monkey = new Monkey();
+        Holdable beast = new Beast();
+        EatableFruits fruits = new Fruits();
+        monkey.setEatableFruits(fruits);
+        monkey.setHoldable(beast);
+        System.out.println(monkey);
+        monkey.print();
+
     }
 }
