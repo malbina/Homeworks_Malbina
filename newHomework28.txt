@@ -1,0 +1,1 @@
+packagecom.company;publicclassMain{publicstaticvoidmain(String[]args){System.out.println("HelloWorld");}}
