@@ -20,7 +20,7 @@ public class Main {
         long timeOfStartingToAddFirst =System.currentTimeMillis();
         Cat.addFirst(arrayListCats,100);
         long timeOfEndingToAddFirst =System.currentTimeMillis();
-        System.out.println("Время добавления 100 кошек в начало ArrayList: "+tellMeTimeForAProzess(timeOfStartingToAddFirst,timeOfEndingToAddFirst));
+        System.out.println("\nВремя добавления 100 кошек в начало ArrayList: "+tellMeTimeForAProzess(timeOfStartingToAddFirst,timeOfEndingToAddFirst));
         long timeOfStartingtoAddFirstLinkedList = System.currentTimeMillis();
         Cat.addFirst(linkedListCats,100);
         long timeOfEndingToAddFirstLinkedList =System.currentTimeMillis();
@@ -29,18 +29,34 @@ public class Main {
         long timeOfStartingToAddLastLinkedList = System.currentTimeMillis();
         Cat.addLast(linkedListCats,100);
         long timeOfEndingToAddLastLinkedList = System.currentTimeMillis();
-        System.out.println("Время добавления 100 кошек в конец LinkedList: "+tellMeTimeForAProzess(timeOfStartingToAddLastLinkedList,timeOfEndingToAddLastLinkedList));
+        System.out.println("\nВремя добавления 100 кошек в конец LinkedList: "+tellMeTimeForAProzess(timeOfStartingToAddLastLinkedList,timeOfEndingToAddLastLinkedList));
        long timeOfStartingToAddLastArrList=System.currentTimeMillis();
         Cat.addLast(arrayListCats,100);
        long timeOfEndingToAddLastArrList =System.currentTimeMillis();
         System.out.println("Время добавления 100 кошек в конец ArrayList: "+tellMeTimeForAProzess(timeOfStartingToAddLastArrList,timeOfEndingToAddLastArrList));
 
-        long timeOfStartingToGetElementsFromLinkedList =System.currentTimeMillis();
+        long timeOfStartingToGetElementFromLinkedList =System.currentTimeMillis();
+        linkedListCats.get((linkedListCats.size()-1)/2);
+        linkedListCats.getLast();
+        long timeOfEndingToGetElementFromLinkedList = System.currentTimeMillis();
+        System.out.println("\nВремя получения одного элемента из cередины и конца  LinkedList: "+tellMeTimeForAProzess(timeOfStartingToGetElementFromLinkedList,timeOfEndingToGetElementFromLinkedList));
+        long timeOfStartingToGetElementFromArrList =System.currentTimeMillis();
+        arrayListCats.get((arrayListCats.size()-1)/2);
+        int arrListInd = arrayListCats.size()-1;
+        arrayListCats.get(arrListInd);
+        long timeOfEndingToGetElementFromArrList =System.currentTimeMillis();
+        System.out.println("Время получения одного элемента из середины и конца ArrayList: "+tellMeTimeForAProzess(timeOfStartingToGetElementFromArrList,timeOfEndingToGetElementFromArrList));
 
-
-
-
-
+        long timeOfStartingToRemoveLinkedList =System.currentTimeMillis();
+        linkedListCats.remove((linkedListCats.size()-1)/2);
+        linkedListCats.removeFirst();
+        long timeOfEndingToRemoveLinkedList =System.currentTimeMillis();
+        System.out.println("\nУдаление из середины и в начале LinkedList: "+tellMeTimeForAProzess(timeOfEndingToRemoveLinkedList,timeOfEndingToRemoveLinkedList));
+        long timeOfStartingToRemoveArrList = System.currentTimeMillis();
+        arrayListCats.remove((arrayListCats.size()-1)/2);
+        arrayListCats.remove(0);
+        long timeOfEndingToRemoveArrList =System.currentTimeMillis();
+        System.out.println("Удаление из середины и в начале ArrayList: "+tellMeTimeForAProzess(timeOfEndingToRemoveArrList,timeOfEndingToRemoveArrList));
 
 
 
