@@ -1,5 +1,7 @@
 package com.company;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -60,9 +62,64 @@ public class Main {
 
         // Task B
         LinkedList<AbstractAnimal> animals = new LinkedList<>();
+        ArrayList<AbstractAnimal> animalsArrayList = new ArrayList<>();
+        LinkedList<AbstractAnimal> lastListOfAnimal = new LinkedList<>();
         for (int i = 0; i <= 50; i++) {
             animals.add(new Dog(i + 1));
             animals.add(new NewCat(i + 1));
+        }
+        int countCats = 0, countDogs = 0;
+        int ageOfCats=0, ageOfDogs =0, ageOfMouses =0;
+        for (int i = 0; i < animals.size(); i++) {
+            if (animals.get(i) instanceof NewCat) {
+                countCats++;
+              ageOfCats+=animals.get(i).getAge();
+                if (countCats == 5) {
+                    animals.remove(i);
+                    countCats = 0;
+                }
+            }
+            if (animals.get(i) instanceof Dog) {
+                AbstractAnimal dogForArrList =animals.get(i);
+                countDogs++;
+                animalsArrayList.add(dogForArrList);
+                ageOfDogs+= animals.get(i).getAge();
+                if (countDogs % 3 == 0) {
+                    AbstractAnimal mouse = new Mouse (2);
+                    animals.add(i + 1, mouse);
+                    animalsArrayList.add(mouse);
+                   ageOfMouses+= mouse.getAge();
+                }
+            }
+        }
+        System.out.println("\nКаждая пятая кошка удалена и после каждой третьей собаки идет мышка\n");
+        System.out.println(animals);
+
+        LinkedList<AbstractAnimal> newAnimalLinkedList = new LinkedList<>();
+        for(int i =0;i< animals.size()-1;i++){
+            AbstractAnimal animalInd1 = animals.get(i);
+            AbstractAnimal animalInd2 = animals.get(i+1);
+            if(animalInd1 instanceof NewCat && animalInd2 instanceof Mouse ||
+            animalInd1 instanceof Mouse && animalInd2 instanceof NewCat){
+               newAnimalLinkedList.add(animalInd1);
+               newAnimalLinkedList.add(animalInd2);
+            }
+    }
+        System.out.println("\nLinked list из кошек и мышек\n"+newAnimalLinkedList);
+        System.out.println("\nArray List из мышек и собак \n"+animalsArrayList);
+        System.out.println("\n\nСумма возрастов кошек: "+ageOfCats);
+        System.out.println("Сумма возрастов собак: "+ageOfDogs);
+        System.out.println("Сумма возрастов мышек: "+ageOfMouses);
+
+        for(AbstractAnimal animal : animals){
+            if(animal instanceof Dog)
+                lastListOfAnimal.add((lastListOfAnimal.size()-1)/2,animal);
+            else if(animal instanceof NewCat)
+                lastListOfAnimal.addFirst(animal);
+            else lastListOfAnimal.addLast(animal);
+        }
+        System.out.println("\nLinked List в начале кошки, в середине собаки,в конце мышки\n"+lastListOfAnimal);
+
         }
 
 
@@ -77,7 +134,6 @@ public class Main {
 
 
 
-    }
     public static long tellMeTimeForAProzess (long timeOfStart,long timeOfEnd){
         return timeOfEnd-timeOfStart;
     }
