@@ -1,0 +1,25 @@
+create table visitors (
+visitors_id SERIAL primary key,
+visitors_full_name VARCHAR (150) not null,
+visitor_date_of_birth VARCHAR (10) not null,
+visitor_gender VARCHAR(10) not null
+)
+create table visits (
+visitor_id INTEGER references visitors (visitors_id),
+time_of_visit TIMESTAMP not null,
+trainer_id INTEGER references trainers (trainer_id)
+)
+
+insert into visitors (visitor_full_name,visitor_date_of_birth,visitor_gender)
+values ('Kairat Usenov','23.10.2000','male'),
+('Asel Turganova','12.02.1995','female'),
+('Uluk Asylbekov','22.06.1998','male'),
+('Madina Kenjebekova','07.02.2000','female'),
+('Akyl Aibekov','05.09.1992','male')
+
+insert into visits (time_of_visit, trainer_id)
+values ('2021-03-22 09:30:00',2)
+('2021-03-22 11:30:00',1),
+('2021-03-22 11:45:00',4),
+('2021-03-22 13:30:00',6),
+('2021-03-22 16:15:00',5)
