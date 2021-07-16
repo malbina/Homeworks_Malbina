@@ -1,0 +1,73 @@
+-- Найти всех клиентов, которые в одной из стран: Испания, Италия, Германия, Франция. Отсортируйте по странам
+select * from customer
+where country in ('Spain', 'Italy', 'Germany', 'France')
+order by country;
+
+-- Найти всех клиентов, имена которых начинаются на ‘Jo’
+select * from customer
+where first_name like 'Jo%';
+
+-- Найти всех клиентов, имена которых заканчиваются на ‘a’ и имеют длину ровно 4 символа
+
+select * from customer
+where first_name like '___a';
+
+-- Найти количество клиентов по странам
+
+select count (id) "Amount of clients", country from customer
+group by country ;
+
+ -- Найти количество клиентов по странам. Вывести в порядке убывания
+
+select count (id) "Amount of clients", country from customer
+group by country
+order by count (id) desc;
+
+ --Найти общую сумму стоимости заказов и количество заказов по каждому клиенту (customer_id). Отсортировать по сумме
+select * from orders
+
+select c2.first_name, c2.last_name, count(o.customer_id) as "Amount of orders", sum(o.total_amount) as "Total sum of orders"
+from orders o join customer c2 on c2.id = o.customer_id
+group by o.customer_id,c2. first_name, c2.last_name;
+
+-- Найти общую сумму стоимости заказов и количество заказов по каждому клиенту (customer_id), у которых общее количество заказов больше 20ти
+select c2.first_name, c2.last_name, count(o.customer_id) as "Amount of orders", sum(o.total_amount) as "Total sum of orders"
+from orders o join customer c2 on c2.id = o.customer_id
+group by o.customer_id,c2. first_name, c2.last_name
+having  count(o.customer_id) > 20;
+
+-- Найти количество городов в каждой из стран клиентов
+select country, count (city) as "Amount of cities " from customer
+group by country
+order by country;
+
+/*order_item с id=5
+- Выбрать:
+	- К какому заказу(номер заказа),
+	- Как зовут клиента,
+	- Из какого он города
+	- Наименование товара
+	- Цена товара
+	- Название поставщика*/
+
+select oi.order_id, o2.order_number, c2.first_name, c2.last_name, c2.city, p2.product_name, p2.unit_price, s2.company_name from order_item oi
+join orders o2 on oi.order_id =o2.id
+join customer c2 on o2.customer_id =c2.id
+join product p2 on oi.product_id = p2.id
+join supplier s2 on p2.supplier_id = s2.id
+where oi.id=5;
+
+--Узнать есть ли поставщики без товара
+
+select * from product p
+right join supplier s2 on p.supplier_id =s2.id
+where p.supplier_id is null;
+-- Выбрать только те товары которые были заказаны
+
+select oi.product_id ,oi.order_id , p.id, p.product_name from order_item oi
+left join product p on oi.product_id = p.id ;
+
+ -- Выбрать только те товары которые не были заказаны
+
+select  *from order_item oi
+right join product p on oi.product_id = p.id  where oi.product_id is null
